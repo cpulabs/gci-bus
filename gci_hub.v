@@ -633,7 +633,7 @@ module gci_hub(
 											((iDEV3_VALID)? iDEV3_BUSY : 1'b0) || 
 											((iDEV4_VALID)? iDEV4_BUSY : 1'b0);
 	//CPU-DATA Output
-	assign		oCPU_REQ		=		/*b_rw && */b_transmit_wait && 
+	assign		oCPU_REQ		=		!b_rw && b_transmit_wait && 
 											((iDEV1_VALID)? !iDEV1_BUSY : 1'b1) && 
 											((iDEV2_VALID)? !iDEV2_BUSY : 1'b1) && 
 											((iDEV3_VALID)? !iDEV3_BUSY : 1'b1) && 
