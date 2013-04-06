@@ -207,12 +207,16 @@ module gci_node
 							end
 						L_PARAM_INI1_GET_MEMSIZE:
 							begin
-								b_waddr <= L_PARAM_PRIORITY_ADDR;
-								b_rwait <= 1'b1;
+								if(!iDEV_BUSY)begin
+									b_waddr <= L_PARAM_PRIORITY_ADDR;
+									b_rwait <= 1'b1;
+								end
 							end
 						L_PARAM_INI2_GET_PRIORITY:
 							begin
-								b_rwait <= 1'b1;
+								if(!iDEV_BUSY)begin
+									b_rwait <= 1'b1;
+								end
 							end
 						L_PARAM_IDLE:
 							begin
