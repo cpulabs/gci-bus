@@ -3,23 +3,23 @@
 
 
 module gci_hub_specialmem(
-		input iREAD_REQ,
-		input [9:0] iREAD_ADDR,
+		input wire iREAD_REQ,
+		input wire [9:0] iREAD_ADDR,
 		//GCI_NODE1
-		input [31:0] iNODE1_USEMEMSIZE,
-		input [7:0] iNODE1_PRIORITY,
+		input wire [31:0] iNODE1_USEMEMSIZE,
+		input wire [7:0] iNODE1_PRIORITY,
 		//GCI_NODE2
-		input [31:0] iNODE2_USEMEMSIZE,
-		input [7:0] iNODE2_PRIORITY,
+		input wire [31:0] iNODE2_USEMEMSIZE,
+		input wire [7:0] iNODE2_PRIORITY,
 		//GCI_NODE3
-		input [31:0] iNODE3_USEMEMSIZE,
-		input [7:0] iNODE3_PRIORITY,
+		input wire [31:0] iNODE3_USEMEMSIZE,
+		input wire [7:0] iNODE3_PRIORITY,
 		//GCI_NODE4
-		input [31:0] iNODE4_USEMEMSIZE,
-		input [7:0] iNODE4_PRIORITY,
+		input wire [31:0] iNODE4_USEMEMSIZE,
+		input wire [7:0] iNODE4_PRIORITY,
 		//Output
-		output oDATA_VALID,
-		output [31:0] oDATA
+		output wire oDATA_VALID,
+		output wire [31:0] oDATA
 	);
 	
 

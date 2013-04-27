@@ -7,42 +7,42 @@ module gci_node
 		parameter RESET_CYCLE = 8'h0F
 	)(
 		//System
-		input iCLOCK,
-		input inRESET,
+		input wire iCLOCK,
+		input wire inRESET,
 		//Node Valid
-		output oNODE_VALID,
+		output wire oNODE_VALID,
 		//Node Info
-		output oNODEINFO_VALID,
-		output [7:0] oNODEINFO_PRIORITY,
-		output [31:0] oNODEINFO_MEMSIZE,
+		output wire oNODEINFO_VALID,
+		output wire [7:0] oNODEINFO_PRIORITY,
+		output wire [31:0] oNODEINFO_MEMSIZE,
 		//MASTER-DATA
-		input iMASTER_REQ,	//Inpuit
-		output oMASTER_BUSY,
-		input iMASTER_RW,
-		input [31:0] iMASTER_ADDR,
-		input [31:0] iMASTER_DATA,
-		output oMASTER_REQ,	//Output
-		input iMASTER_BUSY,
-		output [31:0] oMASTER_DATA,
+		input wire iMASTER_REQ,	//Inpuit
+		output wire oMASTER_BUSY,
+		input wire iMASTER_RW,
+		input wire [31:0] iMASTER_ADDR,
+		input wire [31:0] iMASTER_DATA,
+		output wire oMASTER_REQ,	//Output
+		input wire iMASTER_BUSY,
+		output wire [31:0] oMASTER_DATA,
 		//MASTER-IRQ
-		output oMASTER_IRQ_REQ,
-		input iMASTER_IRQ_ACK,
-		input iMASTER_IRQ_BUSY,
+		output wire oMASTER_IRQ_REQ,
+		input wire iMASTER_IRQ_ACK,
+		input wire iMASTER_IRQ_BUSY,
 		//DEV-DATA
-		input iDEV_VALID,
-		input iDEV_REQ,		//Inpuit
-		output oDEV_BUSY,	
-		input [31:0] iDEV_DATA,
-		output oDEV_REQ,		//Output
-		input iDEV_BUSY,
-		output oDEV_RW,
-		output [31:0] oDEV_ADDR,
-		output [31:0] oDEV_DATA,
+		input wire iDEV_VALID,
+		input wire iDEV_REQ,		//Inpuit
+		output wire oDEV_BUSY,	
+		input wire [31:0] iDEV_DATA,
+		output wire oDEV_REQ,		//Output
+		input wire iDEV_BUSY,
+		output wire oDEV_RW,
+		output wire [31:0] oDEV_ADDR,
+		output wire [31:0] oDEV_DATA,
 		//DEV-IRQ
-		input iDEV_IRQ_REQ,
-		output oDEV_IRQ_BUSY,
-		input [23:0] iDEV_IRQ_DATA,
-		output oDEV_IRQ_ACK
+		input wire iDEV_IRQ_REQ,
+		output wire oDEV_IRQ_BUSY,
+		input wire [23:0] iDEV_IRQ_DATA,
+		output wire oDEV_IRQ_ACK
 	);
 						
 							

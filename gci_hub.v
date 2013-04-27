@@ -14,83 +14,83 @@
 
 module gci_hub(
 		//System
-		input iCLOCK,
-		input inRESET,						
+		input wire iCLOCK,
+		input wire inRESET,						
 		//IRQ Controll Register
-		input iIRQ_CTRL_REQ,
-		input [4:0] iIRQ_CTRL_ENTRY,
-		input iIRQ_CTRL_INFO_MASK,
-		input iIRQ_CTRL_INFO_VALID,
-		input [1:0] iIRQ_CTRL_INFO_MODE,
+		input wire iIRQ_CTRL_REQ,
+		input wire [4:0] iIRQ_CTRL_ENTRY,
+		input wire iIRQ_CTRL_INFO_MASK,
+		input wire iIRQ_CTRL_INFO_VALID,
+		input wire [1:0] iIRQ_CTRL_INFO_MODE,
 		//CPU - Data
-		input iCPU_REQ,	//Input
-		output oCPU_BUSY,
-		input iCPU_RW,
-		input [31:0] iCPU_ADDR,
-		input [31:0] iCPU_DATA,
-		output oCPU_REQ,	//Output
-		input iCPU_BUSY,
-		output [31:0] oCPU_DATA,
+		input wire iCPU_REQ,	//Input
+		output wire oCPU_BUSY,
+		input wire iCPU_RW,
+		input wire [31:0] iCPU_ADDR,
+		input wire [31:0] iCPU_DATA,
+		output wire oCPU_REQ,	//Output
+		input wire iCPU_BUSY,
+		output wire [31:0] oCPU_DATA,
 		//CPU - Irq
-		output oCPU_IRQ_REQ,
-		output [5:0] oCPU_IRQ_NUM,
-		input iCPU_IRQ_ACK,					
+		output wire oCPU_IRQ_REQ,
+		output wire [5:0] oCPU_IRQ_NUM,
+		input wire iCPU_IRQ_ACK,					
 		//DEV1
-		input iDEV1_VALID,
-		input iDEV1_REQ,			//Inpuit
-		output oDEV1_BUSY,
-		input [31:0] iDEV1_DATA,
-		output oDEV1_REQ,			//Output
-		input iDEV1_BUSY,
-		output oDEV1_RW,
-		output [31:0] oDEV1_ADDR,
-		output [31:0] oDEV1_DATA,
-		input iDEV1_IRQ_REQ,		//IRQ
-		output oDEV1_IRQ_BUSY,
-		input [23:0] iDEV1_IRQ_DATA,
-		output oDEV1_IRQ_ACK,
+		input wire iDEV1_VALID,
+		input wire iDEV1_REQ,			//Inpuit
+		output wire oDEV1_BUSY,
+		input wire [31:0] iDEV1_DATA,
+		output wire oDEV1_REQ,			//Output
+		input wire iDEV1_BUSY,
+		output wire oDEV1_RW,
+		output wire [31:0] oDEV1_ADDR,
+		output wire [31:0] oDEV1_DATA,
+		input wire iDEV1_IRQ_REQ,		//IRQ
+		output wire oDEV1_IRQ_BUSY,
+		input wire [23:0] iDEV1_IRQ_DATA,
+		output wire oDEV1_IRQ_ACK,
 		//DEV2
-		input iDEV2_VALID,
-		input iDEV2_REQ,			//Inpuit
-		output oDEV2_BUSY,
-		input [31:0] iDEV2_DATA,
-		output oDEV2_REQ,			//Output
-		input iDEV2_BUSY,
-		output oDEV2_RW,
-		output [31:0] oDEV2_ADDR,
-		output [31:0] oDEV2_DATA,
-		input iDEV2_IRQ_REQ,		//IRQ
-		output oDEV2_IRQ_BUSY,
-		input [23:0] iDEV2_IRQ_DATA,
-		output oDEV2_IRQ_ACK,
+		input wire iDEV2_VALID,
+		input wire iDEV2_REQ,			//Inpuit
+		output wire oDEV2_BUSY,
+		input wire [31:0] iDEV2_DATA,
+		output wire oDEV2_REQ,			//Output
+		input wire iDEV2_BUSY,
+		output wire oDEV2_RW,
+		output wire [31:0] oDEV2_ADDR,
+		output wire [31:0] oDEV2_DATA,
+		input wire iDEV2_IRQ_REQ,		//IRQ
+		output wire oDEV2_IRQ_BUSY,
+		input wire [23:0] iDEV2_IRQ_DATA,
+		output wire oDEV2_IRQ_ACK,
 		//DEV3
-		input iDEV3_VALID,
-		input iDEV3_REQ,			//Inpuit
-		output oDEV3_BUSY,
-		input [31:0] iDEV3_DATA,
-		output oDEV3_REQ,			//Output
-		input iDEV3_BUSY,
-		output oDEV3_RW,
-		output [31:0] oDEV3_ADDR,
-		output [31:0] oDEV3_DATA,
-		input iDEV3_IRQ_REQ,		//IRQ
-		output oDEV3_IRQ_BUSY,
-		input [23:0] iDEV3_IRQ_DATA,
-		output oDEV3_IRQ_ACK,
+		input wire iDEV3_VALID,
+		input wire iDEV3_REQ,			//Inpuit
+		output wire oDEV3_BUSY,
+		input wire [31:0] iDEV3_DATA,
+		output wire oDEV3_REQ,			//Output
+		input wire iDEV3_BUSY,
+		output wire oDEV3_RW,
+		output wire [31:0] oDEV3_ADDR,
+		output wire [31:0] oDEV3_DATA,
+		input wire iDEV3_IRQ_REQ,		//IRQ
+		output wire oDEV3_IRQ_BUSY,
+		input wire [23:0] iDEV3_IRQ_DATA,
+		output wire oDEV3_IRQ_ACK,
 		//DEV4
-		input iDEV4_VALID,
-		input iDEV4_REQ,			//Inpuit
-		output oDEV4_BUSY,
-		input [31:0] iDEV4_DATA,
-		output oDEV4_REQ,			//Output
-		input iDEV4_BUSY,
-		output oDEV4_RW,
-		output [31:0] oDEV4_ADDR,
-		output [31:0] oDEV4_DATA,
-		input iDEV4_IRQ_REQ,		//IRQ
-		output oDEV4_IRQ_BUSY,
-		input [23:0] iDEV4_IRQ_DATA,
-		output oDEV4_IRQ_ACK
+		input wire iDEV4_VALID,
+		input wire iDEV4_REQ,			//Inpuit
+		output wire oDEV4_BUSY,
+		input wire [31:0] iDEV4_DATA,
+		output wire oDEV4_REQ,			//Output
+		input wire iDEV4_BUSY,
+		output wire oDEV4_RW,
+		output wire [31:0] oDEV4_ADDR,
+		output wire [31:0] oDEV4_DATA,
+		input wire iDEV4_IRQ_REQ,		//IRQ
+		output wire oDEV4_IRQ_BUSY,
+		input wire [23:0] iDEV4_IRQ_DATA,
+		output wire oDEV4_IRQ_ACK
 	);
 					
 		

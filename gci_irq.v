@@ -5,35 +5,35 @@
 
 module gci_irq(
 		//System
-		input iCLOCK,
-		input inRESET,
+		input wire iCLOCK,
+		input wire inRESET,
 		//IRQ Controll Register
-		input iIRQ_CTRL_REQ,
-		input [4:0] iIRQ_CTRL_ENTRY,
-		input iIRQ_CTRL_INFO_MASK,
-		input iIRQ_CTRL_INFO_VALID,
-		input [1:0] iIRQ_CTRL_INFO_MODE,
+		input wire iIRQ_CTRL_REQ,
+		input wire [4:0] iIRQ_CTRL_ENTRY,
+		input wire iIRQ_CTRL_INFO_MASK,
+		input wire iIRQ_CTRL_INFO_VALID,
+		input wire [1:0] iIRQ_CTRL_INFO_MODE,
 		//Node Info
-		input iNODEINF_VALID,
-		input [7:0] iNODE1_NODEINFO_PRIORITY,			
-		input [7:0] iNODE2_NODEINFO_PRIORITY,	
-		input [7:0] iNODE3_NODEINFO_PRIORITY,	
-		input [7:0] iNODE4_NODEINFO_PRIORITY,
+		input wire iNODEINF_VALID,
+		input wire [7:0] iNODE1_NODEINFO_PRIORITY,			
+		input wire [7:0] iNODE2_NODEINFO_PRIORITY,	
+		input wire [7:0] iNODE3_NODEINFO_PRIORITY,	
+		input wire [7:0] iNODE4_NODEINFO_PRIORITY,
 		//IRQ
-		output iNODE_IRQ_BUSY,
-		input iNODE1_IRQ,			//IRQ Req Enable
-		output oNODE1_ACK,			
-		input iNODE2_IRQ,
-		output oNODE2_ACK,			
-		input iNODE3_IRQ,
-		output oNODE3_ACK,			
-		input iNODE4_IRQ,
-		output oNODE4_ACK,			
+		output wire iNODE_IRQ_BUSY,
+		input wire iNODE1_IRQ,			//IRQ Req Enable
+		output wire oNODE1_ACK,			
+		input wire iNODE2_IRQ,
+		output wire oNODE2_ACK,			
+		input wire iNODE3_IRQ,
+		output wire oNODE3_ACK,			
+		input wire iNODE4_IRQ,
+		output wire oNODE4_ACK,			
 		//IRQ Out
-		output oIRQ_EMPTY,
-		output oIRQ_VALID,
-		output [5:0] oIRQ_NUM,
-		input iIRQ_ACK
+		output wire oIRQ_EMPTY,
+		output wire oIRQ_VALID,
+		output wire [5:0] oIRQ_NUM,
+		input wire iIRQ_ACK
 	);
 				
 				
