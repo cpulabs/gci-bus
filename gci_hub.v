@@ -209,6 +209,11 @@ module gci_hub(
 	assign nodeinfo_all_received = (!node1_node_valid || b_node1_nodeinfo_valid) && (!node2_node_valid || b_node2_nodeinfo_valid) && 
 									(!node3_node_valid || b_node3_nodeinfo_valid) && (!node4_node_valid || b_node4_nodeinfo_valid);
 
+	/*			
+	always@(posedge iCLOCK)begin
+		$display("%d, %d, %d, %d", b_node1_nodeinfo_valid, b_node2_nodeinfo_valid, b_node3_nodeinfo_valid, b_node4_nodeinfo_valid);
+	end
+	*/
 	
 	always@(posedge iCLOCK or negedge inRESET)begin
 		if(!inRESET)begin
@@ -674,6 +679,33 @@ module gci_hub(
 	assign oDEV4_ADDR = node4_io2dev_addr;
 	assign oDEV4_DATA = node4_io2dev_data;
 	
+	/*
+	`ifdef GCI_SVA_ASSERTION
+		//Node1
+		property NODE1_NODEINF_READ_CHECK;
+			@(posedge iCLOCK) disable iff(!inRESET) (node1_node_valid |-> ##[1:512] b_node1_nodeinfo_valid);
+		endproperty
+		assert property(NODE1_NODEINF_READ_CHECK);
+			
+		//Node2
+		property NODE2_NODEINF_READ_CHECK;
+			@(posedge iCLOCK) disable iff(!inRESET) (node2_node_valid |-> ##[1:512] b_node2_nodeinfo_valid);
+		endproperty
+		assert property(NODE2_NODEINF_READ_CHECK);
+			
+		//Node3
+		property NODE3_NODEINF_READ_CHECK;
+			@(posedge iCLOCK) disable iff(!inRESET) (node3_node_valid |-> ##[1:512] b_node3_nodeinfo_valid);
+		endproperty
+		assert property(NODE3_NODEINF_READ_CHECK);
+			
+		//Node4
+		property NODE4_NODEINF_READ_CHECK;
+			@(posedge iCLOCK) disable iff(!inRESET) (node4_node_valid |-> ##[1:512] b_node4_nodeinfo_valid);
+		endproperty
+		assert property(NODE4_NODEINF_READ_CHECK);
+	`ifndef
+	*/
 	
 endmodule
 
