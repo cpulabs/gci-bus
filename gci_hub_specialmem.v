@@ -22,6 +22,7 @@ module gci_hub_specialmem(
 		output wire [31:0] oDATA
 	);
 	
+	
 
 	function [31:0] func_master_specialmem;
 		input [9:0] func_addr;
@@ -36,7 +37,7 @@ module gci_hub_specialmem(
 		begin
 			case(func_addr)
 				10'h0:
-					func_master_specialmem = 32'h4;
+					func_master_specialmem = 32'h3;
 				10'h4:
 					func_master_specialmem = func_node1_usemem + func_node2_usemem + func_node3_usemem + func_node4_usemem + 32'h400;
 				10'h100:
